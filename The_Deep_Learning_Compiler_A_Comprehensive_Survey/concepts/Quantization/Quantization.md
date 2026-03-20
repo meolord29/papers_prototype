@@ -3,7 +3,7 @@ title: "Quantization"
 date: 2026-03-20
 tags: ["concept", "depth-1"]
 depth_level: 1
-weight: 8
+weight: 5
 ---
 
 # Quantization
@@ -11,30 +11,22 @@ weight: 8
 [[../../The_Deep_Learning_Compiler_A_Comprehensive_Survey|📄 The Deep Learning Compiler: A Comprehensive Survey]]
 
 > [!info] Concept (Level 1)
-> ==Quantization is the process of reducing the precision of numerical representations in DL models to improve efficiency and reduce memory footprint.== Traditional quantization strategies use fixed schemes with little hardware customization, while DL compilers can leverage compilation-time optimization for more efficient strategies. ==Supporting quantization presents challenges including implementing new quantized operators without heavy engineering efforts and managing interaction with other optimizations.== Relay provides quantization rewriting flow that automatically generates quantized code for various schemes.
+> ==Quantization is a technique that reduces the precision of numbers used in neural network computations to save memory and increase speed.== Traditional quantization strategies applied in DL frameworks are based on a set of fixed schemes and datatypes with little customization. ==Whereas, supporting quantization in DL compilers can leverage optimization opportunities during compilation to derive more efficient quantization strategies.== This allows for hardware-specific precision tuning like INT8 or FP16. ==It is vital for deploying models on resource-constrained edge devices.==
 
 ## Usage in this paper
 
-==Table 1 shows quantization support varies: TVM (int8/fp16), nGraph (int8 with training), Glow (int8), XLA (int8/int16), while TC lacks support.== Section 7 identifies quantization as a future research direction, discussing challenges in operator implementation and optimization interaction. The paper suggests using dialects to implement quantized operators upon basic operators.
+The paper discusses quantization as a future direction where compilers can automate the insertion of quantized operators. ==For example, Relay provides a quantization rewriting flow that can automatically generate quantized code for various schemes.== To support quantization, there are several challenges to be solved in DL compilers regarding operator implementation. This highlights the complexity of integrating quantization into the compilation flow.
 
 ## References
 
 > [!quote] Section 7 (p. 28)
 > "Whereas, supporting quantization in DL compilers can leverage optimization opportunities during compilation to derive more efficient quantization strategies."
-> *Explains the advantage of compiler-based quantization*
+> *Explains the advantage of compiler-supported quantization.*
 
 
 
-## Sub-Concepts
-
-- [[sub_concepts/Quantization_Precision_Support|Quantization Precision Support]]
-- [[sub_concepts/Quantized_Operator_Implementation|Quantized Operator Implementation]]
-- [[sub_concepts/Quantization_Optimization_Interaction|Quantization Optimization Interaction]]
 
 
 ## Backlinks
 
 - [[../../The_Deep_Learning_Compiler_A_Comprehensive_Survey]]
-- [[sub_concepts/Quantization_Precision_Support]]
-- [[sub_concepts/Quantized_Operator_Implementation]]
-- [[sub_concepts/Quantization_Optimization_Interaction]]

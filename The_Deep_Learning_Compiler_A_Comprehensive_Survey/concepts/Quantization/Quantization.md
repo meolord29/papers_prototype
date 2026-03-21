@@ -1,32 +1,42 @@
 ---
 title: "Quantization"
-date: 2026-03-20
-tags: ["concept", "depth-1"]
+date: 2026-03-21
+tags: ["deep-learning", "compiler-optimization", "hardware-acceleration", "intermediate-representation", "auto-tuning"]
 depth_level: 1
-weight: 5
+weight: 9
 ---
 
 # Quantization
 
-[[../../The_Deep_Learning_Compiler_A_Comprehensive_Survey|📄 The Deep Learning Compiler: A Comprehensive Survey]]
+
 
 > [!info] Concept (Level 1)
-> ==Quantization is a technique that reduces the precision of numbers used in neural network computations to save memory and increase speed.== Traditional quantization strategies applied in DL frameworks are based on a set of fixed schemes and datatypes with little customization. ==Whereas, supporting quantization in DL compilers can leverage optimization opportunities during compilation to derive more efficient quantization strategies.== This allows for hardware-specific precision tuning like INT8 or FP16. ==It is vital for deploying models on resource-constrained edge devices.==
+> ==Quantization is the process of converting high-precision numbers into lower-precision formats to reduce memory usage and accelerate computation.== In DL compilers, supporting quantization allows for the derivation of efficient strategies tailored to specific hardware during compilation. This can involve INT8 or FP16 formats instead of standard FP32. It presents challenges in implementing new operators and managing interactions with other optimizations. ==Effective quantization is key for deploying models on resource-constrained edge devices.==
 
 ## Usage in this paper
 
-The paper discusses quantization as a future direction where compilers can automate the insertion of quantized operators. ==For example, Relay provides a quantization rewriting flow that can automatically generate quantized code for various schemes.== To support quantization, there are several challenges to be solved in DL compilers regarding operator implementation. This highlights the complexity of integrating quantization into the compilation flow.
+==The survey discusses quantization as a future direction where compilers can leverage optimization opportunities.== It mentions that Relay provides a quantization rewriting flow for automatic code generation. The authors point out challenges in implementing quantized operators without heavy engineering. This concept highlights an area where compilers can add significant value over frameworks.
 
 ## References
 
 > [!quote] Section 7 (p. 28)
 > "Whereas, supporting quantization in DL compilers can leverage optimization opportunities during compilation to derive more efficient quantization strategies."
-> *Explains the advantage of compiler-supported quantization.*
+> *Explaining the benefit of compiler-supported quantization.*
 
 
 
+## Sub-Concepts
+
+The concept of Quantization in DL compilers unfolds across three interconnected dimensions that enable efficient model deployment. **Low-bit Precision Formats** establishes the foundation by defining how numerical representations are compressed from FP32 to INT8 or FP16, directly reducing memory footprint. This compression enables **Hardware-specific Quantized Kernels** which leverage specialized hardware instructions to accelerate computation on target devices. However, realizing these benefits requires **Operator Implementation Challenges** to be addressed, as implementing quantized operators without heavy engineering effort remains a significant barrier that compilers must overcome through automatic code generation flows.
+
+- [[sub_concepts/Low-bit_Precision_Formats/Low-bit_Precision_Formats|Low-bit Precision Formats]]
+- [[sub_concepts/Hardware-specific_Quantized_Kernels/Hardware-specific_Quantized_Kernels|Hardware-specific Quantized Kernels]]
+- [[sub_concepts/Operator_Implementation_Challenges/Operator_Implementation_Challenges|Operator Implementation Challenges]]
 
 
 ## Backlinks
 
 - [[../../The_Deep_Learning_Compiler_A_Comprehensive_Survey]]
+- [[sub_concepts/Low-bit_Precision_Formats/Low-bit_Precision_Formats]]
+- [[sub_concepts/Hardware-specific_Quantized_Kernels/Hardware-specific_Quantized_Kernels]]
+- [[sub_concepts/Operator_Implementation_Challenges/Operator_Implementation_Challenges]]

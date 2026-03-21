@@ -1,44 +1,42 @@
 ---
 title: "Dynamic Shape"
-date: 2026-03-20
-tags: ["concept", "depth-1"]
+date: 2026-03-21
+tags: ["deep-learning", "compiler-optimization", "hardware-acceleration", "intermediate-representation", "auto-tuning"]
 depth_level: 1
-weight: 10
+weight: 9
 ---
 
 # Dynamic Shape
 
-[[../../The_Deep_Learning_Compiler_A_Comprehensive_Survey|📄 The Deep Learning Compiler: A Comprehensive Survey]]
+
 
 > [!info] Concept (Level 1)
-> ==Dynamic shape refers to the ability of a model to handle input tensors with dimensions that are not known until runtime.== This feature is becoming increasingly popular in fields like natural language processing where input lengths vary. ==Existing DL compilers require more research efforts to support dynamic shape efficiently for emerging dynamic models.== Supporting this requires relaxing bound inference and dimension checking mechanisms. ==It remains a significant challenge for static compilation graphs.==
+> ==Dynamic shape refers to the capability of a compiler to handle tensor dimensions that are not known until runtime.== This feature is essential for models with variable input sizes, common in NLP and reinforcement learning. Supporting dynamic shapes requires relaxing bound inference and dimension checking during compilation. It adds complexity to memory planning and optimization passes which often rely on static information. ==As models become more flexible, robust dynamic shape support becomes a critical requirement.==
 
 ## Usage in this paper
 
-The survey highlights dynamic shape as a key future direction for DL compiler research. ==Particularly, in the area of NLP, models may accept inputs of various shapes, which is challenging for DL compilers since the shape of data is unknown until runtime.== Some compilers like TVM and XLA have started to support unknown dimension sizes using placeholders. This indicates a shift towards more flexible compilation strategies.
+==The paper identifies dynamic shape support as a key differentiator in the taxonomy of DL compilers.== It notes that while TVM and XLA support it, others like TC and Glow have limitations. The conclusion highlights dynamic shape as a future research direction due to its popularity in emerging models. This concept underscores a current limitation and future opportunity in compiler design.
 
 ## References
 
 > [!quote] Section 7 (p. 27)
 > "Existing DL compilers require more research efforts to support dynamic shape efficiently for emerging dynamic models."
-> *Identifies dynamic shape support as a future research direction.*
+> *Calling for future research on dynamic shapes.*
 
 
 
 ## Sub-Concepts
 
-The concept of Dynamic Shape unfolds across several interconnected challenges in DL compiler design. **Runtime Dimension Unknown** establishes the fundamental problem by defining why tensor dimensions cannot be determined during compilation time. This directly necessitates **Placeholder-based Support** which provides the technical mechanism compilers use to handle these unknown dimensions. Understanding both reveals why **NLP Model Requirements** drive the practical demand for dynamic shape capabilities in real-world applications. Finally, these challenges collectively expose the **Static Compilation Graph Limitations** that traditional compilers face when adapting to dynamic workloads.
+The concept of Dynamic Shape unfolds across three interconnected dimensions that define compiler capability. **Runtime Dimension Inference** establishes the foundational challenge by addressing how compilers handle tensor dimensions unknown until execution time. This directly constrains **Memory Planning for Variable Tensors** which must allocate resources without complete static information, creating a dependency between inference and allocation strategies. Finally, understanding both reveals why **Optimization Pass Adaptation** is critical, as traditional optimization passes relying on static bounds must be redesigned to work with dynamic constraints. Together, these sub-concepts form a cascade where each limitation propagates to the next, explaining why dynamic shape support remains a key differentiator among DL compilers.
 
-- [[sub_concepts/Runtime_Dimension_Unknown/Runtime_Dimension_Unknown|Runtime Dimension Unknown]]
-- [[sub_concepts/Placeholder-based_Support/Placeholder-based_Support|Placeholder-based Support]]
-- [[sub_concepts/NLP_Model_Requirements/NLP_Model_Requirements|NLP Model Requirements]]
-- [[sub_concepts/Static_Compilation_Graph_Limitations/Static_Compilation_Graph_Limitations|Static Compilation Graph Limitations]]
+- [[sub_concepts/Runtime_Dimension_Inference/Runtime_Dimension_Inference|Runtime Dimension Inference]]
+- [[sub_concepts/Memory_Planning_for_Variable_Tensors/Memory_Planning_for_Variable_Tensors|Memory Planning for Variable Tensors]]
+- [[sub_concepts/Optimization_Pass_Adaptation/Optimization_Pass_Adaptation|Optimization Pass Adaptation]]
 
 
 ## Backlinks
 
 - [[../../The_Deep_Learning_Compiler_A_Comprehensive_Survey]]
-- [[sub_concepts/Runtime_Dimension_Unknown/Runtime_Dimension_Unknown]]
-- [[sub_concepts/Placeholder-based_Support/Placeholder-based_Support]]
-- [[sub_concepts/NLP_Model_Requirements/NLP_Model_Requirements]]
-- [[sub_concepts/Static_Compilation_Graph_Limitations/Static_Compilation_Graph_Limitations]]
+- [[sub_concepts/Runtime_Dimension_Inference/Runtime_Dimension_Inference]]
+- [[sub_concepts/Memory_Planning_for_Variable_Tensors/Memory_Planning_for_Variable_Tensors]]
+- [[sub_concepts/Optimization_Pass_Adaptation/Optimization_Pass_Adaptation]]
